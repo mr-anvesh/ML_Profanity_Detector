@@ -7,7 +7,7 @@ import joblib
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
 # Load the dataset
-df = pd.read_csv(r'C:\Users\yugya\OneDrive\Desktop\Cursor\ML Project NAAC\raw_dataset.csv')
+df = pd.read_csv(r'raw_dataset.csv')
 
 # Combine all toxic categories into one
 df['toxic_combined'] = df[['toxic', 'severe_toxic', 'obscene', 'threat', 'insult', 'identity_hate']].max(axis=1)
