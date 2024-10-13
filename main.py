@@ -2,8 +2,8 @@ import joblib
 import re
 
 # Load the trained model and vectorizer
-model = joblib.load(r'C:\Users\yugya\OneDrive\Desktop\Cursor\ML Project NAAC\profanity_model.joblib')
-vectorizer = joblib.load(r'C:\Users\yugya\OneDrive\Desktop\Cursor\ML Project NAAC\tfidf_vectorizer.joblib')
+model = joblib.load(r'profanity_model.joblib')
+vectorizer = joblib.load(r'tfidf_vectorizer.joblib')
 
 def predict_profanity(text):
     # Transform the input text
