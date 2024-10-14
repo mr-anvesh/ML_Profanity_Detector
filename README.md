@@ -78,9 +78,13 @@ The main application uses the trained model to filter profanity in real-time:
 5. Type 'quit' to exit the application.
 
 ## Performance Metrics
+
 Model Accuracy: 0.9549 or 95.49%
+
 Model Precision: 0.9199 or 91.99%
+
 Model Recall: 0.6091 or 60.91%
+
 Model F1 Score: 0.7329 or 73.29%
 
 ## Note
