@@ -77,7 +77,7 @@ The main application uses the trained model to filter profanity in real-time:
 4. Enter text when prompted. The application will display the profanity score and censored text.
 5. Type 'quit' to exit the application.
 
-##Performance Metrics
+## Performance Metrics
 Model Accuracy: 0.9549 or 95.49%
 Model Precision: 0.9199 or 91.99%
 Model Recall: 0.6091 or 60.91%
