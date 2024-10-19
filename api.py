@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from main import predict_profanity, censor_text
+import os
 
 app = Flask(__name__)
 
@@ -22,4 +23,6 @@ def check_profanity():
     return jsonify(response)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #for render deployment purposes
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)
