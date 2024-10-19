@@ -90,7 +90,7 @@ def main():
     st.subheader("There's a better way")
     st.write("Let ProfanityAPI do the dirty work of keeping your user input clean.")
 
-    API usage example
+    #API usage example
     st.subheader("How to use the API")
     st.code("""
 const res = await fetch('https://ml-profanity-detector.onrender.com/check_profanity', {
