@@ -2,8 +2,8 @@ import joblib
 import re
 
 # Load the trained model and vectorizer
-model = joblib.load('profanity_model.joblib')
-vectorizer = joblib.load('tfidf_vectorizer.joblib')
+model = joblib.load('/Users/omtiwari/Desktop/Anvesh/ML Project NAAC/profanity_model.joblib')
+vectorizer = joblib.load('/Users/omtiwari/Desktop/Anvesh/ML Project NAAC/tfidf_vectorizer.joblib')
 
 # Load bad words from file
 with open('badwords.txt', 'r') as f:
@@ -18,18 +18,21 @@ def predict_profanity(text):
 def censor_text(text):
     words = re.findall(r'\b\w+\b', text)
     censored_text = text
+    overall_profanity_score = 0
     
     for word in words:
         profanity_score = predict_profanity(word)
         if profanity_score > 0.5:  # Adjust this threshold as needed
             censored_word = '*' * len(word)
             censored_text = re.sub(r'\b' + re.escape(word) + r'\b', censored_word, censored_text, flags=re.IGNORECASE)
+            overall_profanity_score = max(overall_profanity_score, profanity_score)
         elif profanity_score < 0.7:  # Fallback mechanism
             if word.lower() in bad_words:
                 censored_word = '*' * len(word)
                 censored_text = re.sub(r'\b' + re.escape(word) + r'\b', censored_word, censored_text, flags=re.IGNORECASE)
+                overall_profanity_score = 1.00  # Update score to 1.00 if word is in badwords.txt
     
-    return censored_text
+    return censored_text, overall_profanity_score
 
 def main():
     print("ML Profanity Filter")
@@ -42,8 +45,7 @@ def main():
             print("Exiting the program. Goodbye!")
             break
         
-        profanity_score = predict_profanity(user_input)
-        censored_output = censor_text(user_input)
+        censored_output, profanity_score = censor_text(user_input)
         print(f"Profanity score: {profanity_score:.2f}")
         print("Censored text:", censored_output)
         print()
