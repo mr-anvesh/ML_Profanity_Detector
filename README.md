@@ -1,6 +1,6 @@
-# AI-Powered Profanity Filter
+# ML Profanity Filter
 
-This project implements an AI-powered profanity filter using machine learning techniques. It consists of two main components: a model training script and a main application that uses the trained model to detect and censor profanity in user-input text.
+This project implements an profanity filter api using machine learning techniques. It consists of two main components: a model training script and a main application that uses the trained model to detect and censor profanity in user-input text.
 
 ## Project Structure
 
@@ -68,14 +68,6 @@ The main application uses the trained model to filter profanity in real-time:
 4. **Joblib**: Used for efficient saving and loading of Python objects, particularly useful for large numpy arrays and scikit-learn models.
 
 5. **Regular Expressions**: Used in the censoring process to identify and replace profane words while preserving text structure.
-
-## Usage
-
-1. Ensure you have the required libraries installed (pandas, numpy, scikit-learn, joblib).
-2. Run `train_model.py` to train and save the model (ensure you have the `raw_dataset.csv` file).
-3. Run `main.py` to start the profanity filter application.
-4. Enter text when prompted. The application will display the profanity score and censored text.
-5. Type 'quit' to exit the application.
 
 ## Performance Metrics
 
