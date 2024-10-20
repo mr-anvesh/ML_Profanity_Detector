@@ -2,8 +2,8 @@ import joblib
 import re
 
 # Load the trained model and vectorizer
-model = joblib.load('/Users/omtiwari/Desktop/Anvesh/ML Project NAAC/profanity_model.joblib')
-vectorizer = joblib.load('/Users/omtiwari/Desktop/Anvesh/ML Project NAAC/tfidf_vectorizer.joblib')
+model = joblib.load('profanity_model.joblib')
+vectorizer = joblib.load('tfidf_vectorizer.joblib')
 
 # Load bad words from file
 with open('badwords.txt', 'r') as f:
