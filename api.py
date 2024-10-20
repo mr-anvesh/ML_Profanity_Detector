@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from main import predict_profanity, censor_text
+from main import censor_text
 import os
 
 app = Flask(__name__)
@@ -11,8 +11,7 @@ def check_profanity():
         return jsonify({'error': 'No text provided'}), 400
 
     text = data['text']
-    profanity_score = predict_profanity(text)
-    censored_text = censor_text(text)
+    censored_text, profanity_score = censor_text(text)
 
     response = {
         'original_text': text,
