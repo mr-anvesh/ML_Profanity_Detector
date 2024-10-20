@@ -25,14 +25,13 @@ def censor_text(text):
         if profanity_score > 0.5:  # Adjust this threshold as needed
             censored_word = '*' * len(word)
             censored_text = re.sub(r'\b' + re.escape(word) + r'\b', censored_word, censored_text, flags=re.IGNORECASE)
-            overall_profanity_score = max(overall_profanity_score, profanity_score)
         elif profanity_score < 0.7:  # Fallback mechanism
             if word.lower() in bad_words:
                 censored_word = '*' * len(word)
                 censored_text = re.sub(r'\b' + re.escape(word) + r'\b', censored_word, censored_text, flags=re.IGNORECASE)
                 overall_profanity_score = 1.00  # Update score to 1.00 if word is in badwords.txt
-    
-    return censored_text, overall_profanity_score
+    profanity_score = max(overall_profanity_score,predict_profanity(text))
+    return censored_text, profanity_score
 
 def main():
     print("ML Profanity Filter")
