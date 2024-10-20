@@ -47,8 +47,7 @@ def main():
 
     if st.button("Check and Censor"):
         if user_input:
-            profanity_score = predict_profanity(user_input)
-            censored_output = censor_text(user_input)
+            censored_output, profanity_score = censor_text(user_input)
 
             st.subheader("Results:")
             st.write(f"Profanity score: {profanity_score:.2f}")
